@@ -1,7 +1,6 @@
 const express = require('express')
 const userModel = require('../models/user.model.js')
 const jwt = require('jsonwebtoken')
-const { is } = require('express/lib/request.js')
 
 const router = express.Router()
 
