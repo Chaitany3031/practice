@@ -2,14 +2,27 @@
 
 const { GoogleGenAI } = require("@google/genai");
 
-const ai = new GoogleGenAI({});
+const ai = new GoogleGenAI({apiKey:"AIzaSyCJiE7i2ns5RKDQ68_-h09dY4-PcvxdPmo"});
 
-async function main() {
+async function generateCaption(base64ImageFile){
+
+
+  const contents = [
+    {
+      inlineData: {
+        mimeType: "image/jpeg",
+        data: base64ImageFile,
+      },
+    },
+    { text: "Caption this image." },
+  ];
+  
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
-    contents: "Explain how AI works in a few words",
+    contents: contents,
   });
-  console.log(response.text);
+ return (response.text);
 }
 
-await main();
+module.exports = generateCaption
+

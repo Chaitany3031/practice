@@ -4,11 +4,11 @@ const postSchema = new mongoose.Schema({
     image:String,
     caption:String,
     user:{
-        typeof:mongoose.Schema.Types.ObjectId,
-        ref:"users"
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"user"
     }
 })
 
-const postModel = mongoose,model("post",postSchema)
-
+const postModel = mongoose.model("post",postSchema)
+ 
 module.exports = postModel
