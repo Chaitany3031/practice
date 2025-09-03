@@ -6,6 +6,6 @@ const multer = require('multer')
 
 const upload = multer({storage:multer.memoryStorage()})
 
-router.post('/',authMiddleware,upload.single('image')) 
+router.post('/',authMiddleware,upload.single('image'), postController.createPostController) 
 
 module.exports = router
